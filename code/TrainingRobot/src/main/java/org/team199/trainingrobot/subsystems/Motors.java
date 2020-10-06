@@ -12,6 +12,7 @@ import org.team199.trainingrobot.Constants;
 import org.team199.lib.MotorControllerFactory;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /**
@@ -19,6 +20,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
  */
 public class Motors extends SubsystemBase {
   private final WPI_TalonSRX talon = MotorControllerFactory.createTalon(Constants.Drive.kTalon);
+  private final VictorSP  VictorSPController = new VictorSP(1);
+  private final WPI_TalonSRX VictorSPXController = MotorControllerFactory.createTalon(Constants.Drive.kTalon);
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   public Motors() {
@@ -26,5 +29,7 @@ public class Motors extends SubsystemBase {
 
   public void run(double speed) {
     talon.set(speed);
+    VictorSPController.set(speed);
+    VictorSPXController.set(speed);
   }
 }
