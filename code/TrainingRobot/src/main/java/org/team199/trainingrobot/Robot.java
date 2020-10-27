@@ -7,6 +7,10 @@
 
 package org.team199.trainingrobot;
 
+import org.team199.trainingrobot.commands.RunMotorsWithJoystick;
+import org.team199.trainingrobot.subsystems.Motors;
+
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -21,6 +25,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends TimedRobot {
   private RobotContainer robotContainer;
+  private Motors motors = new Motors();
+  private Joystick joystick = new Joystick(Constants.OI.Controller.kPort);
+  
 
   /**
    * This function is run when the robot is first started up and should be
@@ -72,6 +79,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    RunMotorsWithJoystick runMotorsWithJoyStick = new RunMotorsWithJoystick(motors, joystick);
+    runMotorsWithJoyStick.execute();
   }
 
   /**
