@@ -21,10 +21,19 @@ public class Motors extends SubsystemBase {
   private final WPI_TalonSRX talon = MotorControllerFactory.createTalon(Constants.Drive.kTalon);
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  /* added */
+  private final WPI_VictorSPX victorSPX = MotorControllerFactory.createVictorSPX(Constants.Drive.kVictorSPX);
+  private final VictorSP victorSP = MotorControllerFactory.createVictorSP(Constants.Drive.kVictorSP);
+  
   public Motors() {
   }
 
   public void run(double speed) {
     talon.set(speed);
+    /* added */
+    new VictorSP();
+    victorSP.set(speed);
+    
+
   }
 }
