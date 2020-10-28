@@ -30,7 +30,7 @@ public class Motors extends SubsystemBase {
 
   public void run(double speed) {
     talon.set(speed);
-    /* added */
+    /* adde asjfaskldfj*/
     new VictorSP();
     victorSP.set(speed);
     
