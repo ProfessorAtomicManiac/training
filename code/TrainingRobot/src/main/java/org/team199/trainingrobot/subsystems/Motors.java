@@ -8,11 +8,16 @@
 package org.team199.trainingrobot.subsystems;
 
 import org.team199.trainingrobot.Constants;
-
+import org.team199.trainingrobot.commands.RunMotorsWithJoystick;
 import org.team199.lib.MotorControllerFactory;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
+import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /**
@@ -20,16 +25,21 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
  */
 public class Motors extends SubsystemBase {
   private final WPI_TalonSRX talon = MotorControllerFactory.createTalon(Constants.Drive.kTalon);
-  private final VictorSP  VictorSPController = new VictorSP(1);
-  private final WPI_TalonSRX VictorSPXController = MotorControllerFactory.createTalon(Constants.Drive.kTalon);
+  private final VictorSP  victorSP = new VictorSP(Constants.Drive.kVictorSPChannel);
+  private final WPI_VictorSPX victorSPX = MotorControllerFactory.createVictor(Constants.Drive.kVictorSPX);
+  
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+
+    
   public Motors() {
   }
 
   public void run(double speed) {
     talon.set(speed);
-    VictorSPController.set(speed);
-    VictorSPXController.set(speed);
+    victorSP.set(speed);
+    victorSPX.set(speed);
   }
+
+  
 }
