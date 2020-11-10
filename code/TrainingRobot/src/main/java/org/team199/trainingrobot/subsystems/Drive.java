@@ -42,7 +42,7 @@ public class Drivetrain extends Subsystem {
   }
 
   public void setArcade(boolean arcade){
-    arcade = arcadeMode;
+    arcadeMode = arcade;
   }
   
   public void tankDrive(double leftSpeed,double rightSpeed) {

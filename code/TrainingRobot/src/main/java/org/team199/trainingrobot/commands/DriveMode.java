@@ -13,7 +13,7 @@ import org.team199.trainingrobot.subsystems.Motors;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PWMTalonSRX;
 
-public class Drive extends CommandBase {
+public class DriveMode extends CommandBase {
     Drive driving;
 
     public DriveMode (Drive d) {
@@ -24,18 +24,18 @@ public class Drive extends CommandBase {
     // Called when the command is initially scheduled.
      @Override
     public void initialize() {
-    }
-
-    // Called every time the scheduler runs while the command is scheduled.
-    @Override
-    public void execute() {
-        if (driving.arcadeMode(true)) {
+        if (driving.arcadeMode()) {
             driving.setArcadeMode(false);
         }
         else {
             driving.setArcadeMode(true);
         }
-        }
+    }
+
+    // Called every time the scheduler runs while the command is scheduled.
+    @Override
+    public void execute() {
+    }
 
      // Returns true when the command should end.
     @Override
