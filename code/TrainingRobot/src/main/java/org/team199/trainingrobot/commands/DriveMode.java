@@ -9,17 +9,16 @@ package org.team199.trainingrobot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import org.team199.trainingrobot.subsystems.Motors;
+
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.PWMTalonSRX;
 
 public class Drive extends CommandBase {
-    private Joystick leftJoystick;
-    private Joystick rightJoystick;
-    private boolean arcadeMode;
+    Drive driving;
 
-    public Drive (Joystick left, Joystick right) {
+    public DriveMode (Drive d) {
     // Use addRequirements() here to declare subsystem dependencies
-        left = leftJoystick;
-        right = rightJoystick;
+        d = driving;
     }
 
     // Called when the command is initially scheduled.
@@ -30,10 +29,13 @@ public class Drive extends CommandBase {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        if (arcadeMode) {
-
+        if (driving.arcadeMode(true)) {
+            driving.setArcadeMode(false);
         }
-    }
+        else {
+            driving.setArcadeMode(true);
+        }
+        }
 
      // Returns true when the command should end.
     @Override

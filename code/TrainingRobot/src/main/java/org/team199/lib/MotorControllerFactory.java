@@ -1,12 +1,12 @@
 package org.team199.lib;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.PWMTalonSRX;
+import com.ctre.phoenix.motorcontrol.can.PWMVictorSPX;
 
 public class MotorControllerFactory {
-    public static WPI_TalonSRX createTalon(int id) {
-        WPI_TalonSRX talon = new WPI_TalonSRX(id);
+    public static PWMTalonSRX createTalon(int id) {
+        PWMTalonSRX talon = new PWMTalonSRX(id);
     
         // Put all configurations for the talon motor controllers in here.
         talon.enableCurrentLimit(true);
@@ -15,8 +15,8 @@ public class MotorControllerFactory {
         return talon;
     }
 
-    public static WPI_VictorSPX createVictor(int port) {
-        WPI_VictorSPX victor = new WPI_VictorSPX(port);
+    public static PWMVictorSPX createVictor(int port) {
+        PWMVictorSPX victor = new PWMVictorSPX(port);
     
         // Put all configurations for the victor motor controllers in here.
         victor.setNeutralMode(NeutralMode.Brake);

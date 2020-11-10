@@ -10,7 +10,7 @@ package org.team199.trainingrobot.subsystems;
 import org.team199.trainingrobot.Constants;
 
 import org.team199.lib.MotorControllerFactory;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.PWMTalonSRX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
  * Add your docs here.
  */
 public class Motors extends SubsystemBase {
-  private final WPI_TalonSRX talon = MotorControllerFactory.createTalon(Constants.Drive.kTalon);
+  private final PWMTalonSRX talon = MotorControllerFactory.createTalon(Constants.Drive.kTalon);
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   public Motors() {
