@@ -18,7 +18,7 @@ public class DriveMode extends InstantCommand {
 
     public DriveMode (Drive d) {
     // Use addRequirements() here to declare subsystem dependencies
-        d = driving;
+        driving = d;
     }
 
     // Called when the command is initially scheduled.
