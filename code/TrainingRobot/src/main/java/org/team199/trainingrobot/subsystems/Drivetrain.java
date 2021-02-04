@@ -5,17 +5,17 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.subsystems;
+package org.team199.trainingrobot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
 import edu.wpi.first.wpilibj.PWMTalonSRX;
 import edu.wpi.first.wpilibj.PWMVictorSPX;
 
 /**
  * Add your docs here.
  */
-public class Drivetrain extends Subsystem {
+public class Drivetrain extends SubsystemBase {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
  
@@ -25,32 +25,33 @@ public class Drivetrain extends Subsystem {
   private PWMTalonSRX rightTalon;
   private PWMVictorSPX rightVictor1;
   private PWMVictorSPX rightVictor2;
-  private  boolean arcadeMode;
+  private static boolean isArcadeMode;
   
-  public Drivetrain(PWMTalonSRX lt, PWMVictorSPX lv1, PWMVictorSPX lv2,PWMTalonSRX rt, PWMVictorSPX rv1, PWMVictorSPX rv2, Encoder le, Encoder re) {
-    lt = leftTalon;
-    lv1 = leftVictor1;
-    lv2 = leftVictor2;
-    rt = rightTalon;
-    rv1 = rightVictor1;
-    rv2 = rightVictor2;
-    arcadeMode = true;
+
+  public Drivetrain() {
+    isArcadeMode = true;
+    leftTalon = new PWMTalonSRX(0);
+    leftVictor1 = new PWMVictorSPX(0);
+    leftVictor2 = new PWMVictorSPX(0);
+    rightTalon = new PWMTalonSRX(1);
+    rightVictor1 = new PWMVictorSPX(1);
+    rightVictor2 = new PWMVictorSPX(1);
   }
 
-  public boolean arcadeMode(){
-    return arcadeMode;
+  public static boolean isArcadeMode(){
+    return isArcadeMode;
   }
 
   public void setArcade(boolean arcade){
-    arcadeMode = arcade;
+    isArcadeMode = arcade;
   }
   
   public void tankDrive(double leftSpeed,double rightSpeed) {
-    lefttalon.set(-leftSpeed);
+    leftTalon.set(-leftSpeed);
     leftVictor1.set(-leftSpeed);
     leftVictor2.set(-leftSpeed);
 
-    righttalon.set(rightSpeed);
+    rightTalon.set(rightSpeed);
     rightVictor1.set(rightSpeed);
     rightVictor2.set(rightSpeed);
   }
@@ -60,13 +61,9 @@ public class Drivetrain extends Subsystem {
     leftVictor1.set(-speed + rotation);
     leftVictor2.set(-speed + rotation);
 
-    righttalon.set(speed + rotation);
+    rightTalon.set(speed + rotation);
     rightVictor1.set(speed + rotation);
     rightVictor2.set(speed + rotation);
   }
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-  }
+
 }

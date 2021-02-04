@@ -8,33 +8,26 @@
 package org.team199.trainingrobot.commands;
 
 import edu.wpi.first.wpilibj2.command.InstantCommand;
-import org.team199.trainingrobot.subsystems.Motors;
+import org.team199.trainingrobot.subsystems.Drivetrain;
 
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.PWMTalonSRX;
 
-public class DriveMode extends InstantCommand {
-    Drive driving;
+public class TeleopDriveMode extends InstantCommand {
+    private Drivetrain drivetrain;
 
-    public DriveMode (Drive d) {
+    public TeleopDriveMode (Drivetrain d) {
     // Use addRequirements() here to declare subsystem dependencies
-        driving = d;
+    drivetrain = d;
     }
 
     // Called when the command is initially scheduled.
      @Override
     public void initialize() {
-        if (driving.arcadeMode()) {
-            driving.setArcadeMode(false);
+        if (drivetrain.isArcadeMode()) {
+            drivetrain.setArcade(false);
         }
         else {
-            driving.setArcadeMode(true);
+            drivetrain.setArcade(true);
         }
     }
 
-     // Returns true when the command should end.
-    @Override
-    public boolean isFinished() {
-      return false;
-    }
 }

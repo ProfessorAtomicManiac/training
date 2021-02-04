@@ -8,19 +8,15 @@
 package org.team199.trainingrobot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.team199.trainingrobot.subsystems.Motors;
 
-import edu.wpi.first.wpilibj.Joystick;
+public class AutonomousCG extends SequentialCommandGroup {
 
-public class RunMotorWithJoystick extends CommandBase {
-  private Motors motors;
-  private Joystick joystick;
-
-  public RunMotorWithJoystick(Motors m, Joystick j) {
+  public AutonomousCG() {
     // Use addRequirements() here to declare subsystem dependencies
-    m = motors;
-    j = joystick;
-    addRequirements(m);
+    
   }
 
   // Called when the command is initially scheduled.
@@ -31,7 +27,6 @@ public class RunMotorWithJoystick extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    motors.run(joystick.getY());
   }
 
   // Returns true when the command should end.

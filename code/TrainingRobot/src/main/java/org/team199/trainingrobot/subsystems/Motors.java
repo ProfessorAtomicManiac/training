@@ -1,3 +1,4 @@
+
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
@@ -10,15 +11,16 @@ package org.team199.trainingrobot.subsystems;
 import org.team199.trainingrobot.Constants;
 
 import org.team199.lib.MotorControllerFactory;
-import com.ctre.phoenix.motorcontrol.can.PWMTalonSRX;
-
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /**
  * Add your docs here.
  */
 public class Motors extends SubsystemBase {
-  private final PWMTalonSRX talon = MotorControllerFactory.createTalon(Constants.Drive.kTalon);
+  private final WPI_TalonSRX talon = MotorControllerFactory.createTalon(Constants.Drive.kTalon);
+  private final WPI_VictorSPX victorSPX = new WPI_VictorSPX(1);
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   public Motors() {
@@ -26,5 +28,6 @@ public class Motors extends SubsystemBase {
 
   public void run(double speed) {
     talon.set(speed);
+    victorSPX.set(speed);
   }
 }

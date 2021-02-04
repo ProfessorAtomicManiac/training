@@ -11,6 +11,9 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.team199.trainingrobot.commands.Teleop;
+import org.team199.trainingrobot.subsystems.Drivetrain;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the

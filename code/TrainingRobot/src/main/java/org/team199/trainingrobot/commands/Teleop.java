@@ -9,32 +9,43 @@ package org.team199.trainingrobot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import org.team199.trainingrobot.subsystems.Motors;
+import org.team199.trainingrobot.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PWMTalonSRX;
 
-public class DriveMode extends CommandBase {
-    Drive driving;
+public class Teleop extends CommandBase {
 
-    public DriveMode (Drive d) {
+    private Drivetrain drivetrain = new Drivetrain();
+    private Joystick leftJoystick;
+    private Joystick rightJoystick;
+
+    public Teleop(Drivetrain drive, Joystick left, Joystick right) {
     // Use addRequirements() here to declare subsystem dependencies
-        d = driving;
+        drivetrain = drive;
+        leftJoystick = left;
+        rightJoystick = right;
+        addRequirements(drivetrain);
     }
 
     // Called when the command is initially scheduled.
      @Override
     public void initialize() {
-        if (driving.arcadeMode()) {
-            driving.setArcadeMode(false);
-        }
-        else {
-            driving.setArcadeMode(true);
-        }
     }
 
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
+        if(drivetrain.isArcadeMode()) {
+            double speed = leftJoystick.getY();
+            double rotation = rightJoystick.getX();
+            drivetrain.arcadeDrive(speed, rotation);
+        }
+        else { //tank mode
+            double leftSpeed = leftJoystick.getY();
+            double rightSpeed = rightJoystick.getY();
+            drivetrain.tankDrive(leftSpeed, rightSpeed);
+        }
     }
 
      // Returns true when the command should end.

@@ -27,6 +27,8 @@ public final class Constants {
      */
     public static final class Drive {
         public static final int kTalon = 1;
+        public static final int FrontLeftPort = 1;
+        
     }
 
     /**
@@ -38,6 +40,7 @@ public final class Constants {
             public static final int kPort = 2;
 
             // Buttons and triggers
+            public static final int kDtLt = 0;
             public static final int X = 1;
             public static final int A = 2;
             public static final int B = 3;
