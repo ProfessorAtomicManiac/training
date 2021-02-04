@@ -37,10 +37,6 @@ public class AutonomousCircles extends CommandBase {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        //drive forward for 2 feet at half speed (?)
-        if(rightEncoder.getDistance() < 2 && leftEncoder.getDistance() <2) {
-            driving.arcadeDrive(0.5, 0.5);
-        }
     }
 
      // Returns true when the command should end.
