@@ -10,7 +10,6 @@ package org.team199.trainingrobot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import org.team199.trainingrobot.subsystems.Motors;
 
 public class AutonomousCG extends SequentialCommandGroup {
 

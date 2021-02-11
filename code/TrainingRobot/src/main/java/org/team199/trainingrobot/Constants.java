@@ -25,9 +25,8 @@ public final class Constants {
      * Put other constants (like motor speed and characterization constants) in the
      * subsystems themselves.
      */
-    public static final class Drive {
-        public static final int kTalon = 1;
-        public static final int FrontLeftPort = 1;
+    
+     public static final class Drive {
         
     }
 
@@ -36,11 +35,12 @@ public final class Constants {
      * years.
      */
     public static final class OI {
+        public static final int kPort = 0;
+        public static final int leftJoyPort = 1;
+        public static final int rightJoyPort = 2;
         public static final class Controller {
-            public static final int kPort = 2;
 
             // Buttons and triggers
-            public static final int kDtLt = 0;
             public static final int X = 1;
             public static final int A = 2;
             public static final int B = 3;

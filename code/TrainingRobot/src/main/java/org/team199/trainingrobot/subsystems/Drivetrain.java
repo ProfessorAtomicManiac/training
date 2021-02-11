@@ -8,9 +8,10 @@
 package org.team199.trainingrobot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.lib.MotorControllerFactory;
 
-import edu.wpi.first.wpilibj.PWMTalonSRX;
-import edu.wpi.first.wpilibj.PWMVictorSPX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 /**
  * Add your docs here.
@@ -19,23 +20,23 @@ public class Drivetrain extends SubsystemBase {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
  
-  private PWMTalonSRX leftTalon;
-  private PWMVictorSPX leftVictor1;
-  private PWMVictorSPX leftVictor2;
-  private PWMTalonSRX rightTalon;
-  private PWMVictorSPX rightVictor1;
-  private PWMVictorSPX rightVictor2;
+  private WPI_TalonSRX leftTalon;
+  private WPI_VictorSPX leftVictor1;
+  private WPI_VictorSPX leftVictor2;
+  private WPI_TalonSRX rightTalon;
+  private WPI_VictorSPX rightVictor1;
+  private WPI_VictorSPX rightVictor2;
   private static boolean isArcadeMode;
   
 
   public Drivetrain() {
     isArcadeMode = true;
-    leftTalon = new PWMTalonSRX(0);
-    leftVictor1 = new PWMVictorSPX(0);
-    leftVictor2 = new PWMVictorSPX(0);
-    rightTalon = new PWMTalonSRX(1);
-    rightVictor1 = new PWMVictorSPX(1);
-    rightVictor2 = new PWMVictorSPX(1);
+    leftTalon = MotorControllerFactory.createTalon(0);
+    leftVictor1 = MotorControllerFactory.createVictor(2);
+    leftVictor2 = MotorControllerFactory.createVictor(4);
+    rightTalon = MotorControllerFactory.createTalon(1);
+    rightVictor1 = MotorControllerFactory.createVictor(3);
+    rightVictor2 = MotorControllerFactory.createVictor(5);
   }
 
   public static boolean isArcadeMode(){

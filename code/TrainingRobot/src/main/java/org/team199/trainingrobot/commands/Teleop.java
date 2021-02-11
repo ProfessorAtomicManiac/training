@@ -8,15 +8,13 @@
 package org.team199.trainingrobot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import org.team199.trainingrobot.subsystems.Motors;
 import org.team199.trainingrobot.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.PWMTalonSRX;
 
 public class Teleop extends CommandBase {
 
-    private Drivetrain drivetrain = new Drivetrain();
+    private Drivetrain drivetrain;
     private Joystick leftJoystick;
     private Joystick rightJoystick;
 

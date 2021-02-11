@@ -1,0 +1,13 @@
+Full stack trace:
+[java.base/java.lang.Thread.getStackTrace(Thread.java:1606), 
+frc.robot.lib.MotorErrors.reportError(MotorErrors.java:44), 
+frc.robot.lib.MotorErrors.reportError(MotorErrors.java:19), 
+frc.robot.lib.MotorControllerFactory.createTalon(MotorControllerFactory.java:61), 
+org.team199.trainingrobot.subsystems.Drivetrain.<init>(Drivetrain.java:34), 
+org.team199.trainingrobot.RobotContainer.<init>(RobotContainer.java:18), 
+org.team199.trainingrobot.Robot.robotInit(Robot.java:34), 
+edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:94), 
+edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:335), 
+edu.wpi.first.wpilibj.RobotBase.lambda$startRobot$0(RobotBase.java:387), 
+java.base/java.lang.Thread.run(Thread.java:834)]
+Error: InvalidHandle occured while configuring CTRE motor
